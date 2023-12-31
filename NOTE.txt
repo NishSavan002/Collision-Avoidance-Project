@@ -1,0 +1,17 @@
+Please re-run the script if the following errors show up:
+
+1. Error using matlabshared.satellitescenario.internal.AssetWrapper/aer
+   The TIME value specified for "aer" must be between the StartTime and StopTime of the satellite scenario.
+
+   Error in gradientScenario (line 26)
+       [~,~,range(j)] = aer(satellite1,satellite2,startTime+t+seconds(delT(j)));
+
+2. Index exceeds the number of array elements. Index must not exceed 1441.
+
+   Error in matlab.internal.datatypes.parenReference_1D (line 12)
+       data = data(rowIndices);
+
+   Error in  ()  (line 19)
+           obj.data = parenReference_1D(obj.data, rowIndices);
+
+This may arise if the Keplerian elements generated might intersect the Earth leading to an incorrect orbit as the orbital elements are generated in random. These errors occur randomly and the program has to be re-run until a correct solution is achieved.
